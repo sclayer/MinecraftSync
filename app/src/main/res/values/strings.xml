@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="btnConnect">Dropbox Connection</string>
+    <string name="btnSave">Save Minecraft</string>
+    <string name="stateConnected">Connected to Dropbox</string>
+    <string name="stateUnconnected">Unconnected</string>
+    <string name="btnViewFiles">List Files</string>
 </resources>
