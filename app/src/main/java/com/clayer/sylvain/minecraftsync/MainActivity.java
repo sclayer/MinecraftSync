@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.android.AndroidAuthSession;
+import com.dropbox.client2.exception.DropboxException;
 import com.dropbox.client2.session.AppKeyPair;
 
 import java.io.File;
@@ -70,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             txt.setText(R.string.stateConnected);
             txt.setBackgroundColor(Color.GREEN);
+            DropboxManager.getInstance().setAccessToken(accessToken);
+            DropboxManager.getInstance().setDBAPI(mDBApi);
         }
     }
 
@@ -120,7 +123,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSaveOnClick(View v){
-        String filePath = mMinecraftFile.SaveGame();
+        //String filePath = mMinecraftFile.SaveGame();
+        DropboxAPI.Entry existing= null;
+        try {
+            existing = mDBApi.metadata("/",1,null,false,null);
+            Log.d("", existing.rev);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
